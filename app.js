@@ -25,7 +25,7 @@ app.post('/upload', async (req, res) => {
         console.log(uploaded_file)
         const move_path = path.join(__dirname, 'public', 'uploads', `${new Date().getTime().toString()}${path.extname(uploaded_file.name)}`)
         await uploaded_file.mv(move_path)
-        let url = 'https://itheamc-files-uploader.herokuapp.com/' + move_path.startsWith(uploads)
+        let url = 'https://itheamc-files-uploader.herokuapp.com/' + move_path.startsWith('uploads')
         console.log(url)
         res.json({message: 'Uploaded Successfully', url})
     } catch (error) {
